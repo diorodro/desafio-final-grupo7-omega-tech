@@ -15,6 +15,6 @@ export class UserDTO{
 
     @IsString()
     @IsNotEmpty()
-    @MinLength(3)
+    @MinLength(8)
     password:string
 }
