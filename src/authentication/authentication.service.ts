@@ -1,3 +1,8 @@
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+// import { UsersService } from '../users/users.service';
+import RegisterDto from './dto/register.dto';
+import * as bcrypt from 'bcrypt';
+
 export class AuthenticationService {
   constructor(
     private readonly usersService: UsersService
@@ -13,7 +18,7 @@ export class AuthenticationService {
       createdUser.password = undefined;
       return createdUser;
     } catch (error) {
-      if (error?.code === PostgresErrorCode.UniqueViolation) {
+      if (error) {
         throw new HttpException('User with that email already exists', HttpStatus.BAD_REQUEST);
       }
       throw new HttpException('Something went wrong', HttpStatus.INTERNAL_SERVER_ERROR);
