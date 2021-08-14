@@ -1,24 +1,39 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { Guid } from 'guid-typescript';
 import { IController } from 'src/shared/controller.interface';
-import Proposal from '../entities/proposal.entity';
+import { CreateProposalDto } from '../dtos/createProposal.dto';
+import { UpdateProposalDto } from '../dtos/updateProposal.dto';
+import { Proposal } from '../entities/proposal.entity';
+import { ProposalsService } from '../services/proposals.service';
 
 @Controller('proposta')
 export class ProposalsController implements IController<Proposal> {
     
-    add(dto: any): Promise<Proposal> {
-        throw new Error('Method not implemented.');
-    }
-    findOne(id: Guid): Promise<Proposal> {
-        throw new Error('Method not implemented.');
-    }
-    findAll(): Promise<Proposal[]> {
-        throw new Error('Method not implemented.');
-    }
-    remove(id: Guid): Promise<any> {
-        throw new Error('Method not implemented.');
-    }
-    update(id: Guid, dto: any): Promise<Proposal> {
-        throw new Error('Method not implemented.');
-    }
+    constructor(private service: ProposalsService) {}
+
+
+  @Post()
+  add(@Body() dto: CreateProposalDto): Promise<Proposal> {
+    return this.service.add(dto)
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: Guid): Promise<Proposal> {
+    return this.service.findOne(id)
+  }
+
+  @Get()
+  findAll(): Promise<Proposal[]> {
+    return this.service.findAll()
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: Guid): Promise<any> {
+    return this.service.remove(id)
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: Guid, @Body() dto: UpdateProposalDto): Promise<Proposal> {
+    return this.service.update(id, dto)
+  }
 }

@@ -1,10 +1,26 @@
+import FonteEnergia from 'src/utils/fonte.enum';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from '../../shared/base-entity';
+import { Carga } from './carga.entity';
  
 @Entity()
-class Proposal extends BaseEntity {
+export class Proposal extends BaseEntity {
   
-  
+  private dataInicio: Date
+
+  private dataFinal: Date
+
+  private cargas: Carga[]
+
+  private consumoTotal: number
+
+  private fonteEnergia: FonteEnergia
+
+  private contratado: boolean
+
+  private valorProposto: string
+
+  constructor() {
+      super()
+  }
 }
- 
-export default Proposal;
