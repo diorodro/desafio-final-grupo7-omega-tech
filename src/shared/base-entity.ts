@@ -1,12 +1,10 @@
-import { IsNotEmpty } from 'class-validator'
 import { Guid } from 'guid-typescript'
-// import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, Entity, PrimaryColumn } from 'typeorm'
 
-// @Entity()
+@Entity()
 export abstract class BaseEntity {
 
-//   @PrimaryColumn({type: 'uuid', name: 'ID' })
-  @IsNotEmpty()
+  @PrimaryColumn({type: 'uuid', name: 'ID' })
   public id: string
 
   constructor() {
