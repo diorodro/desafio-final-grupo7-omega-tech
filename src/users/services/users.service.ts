@@ -12,7 +12,7 @@ export class UsersService {
     private usersRepository: Repository<User>
   ) {}
 
-  async getById(id: Guid) {
+  async getById(id: string) {
     const user = await this.usersRepository.findOne(id.toString());
     if (user) {
       return user;

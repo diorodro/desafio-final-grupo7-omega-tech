@@ -7,7 +7,18 @@ import { UsersModule } from './users/user.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'admin',
+      database: 'calculator',
+      entities: [
+        __dirname + '/../**/*.entity{.ts,.js}',
+    ],
+      synchronize: true,
+    }),
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         JWT_SECRET: Joi.string().required(),
