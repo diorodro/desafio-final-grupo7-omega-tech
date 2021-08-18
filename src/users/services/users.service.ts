@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Guid } from 'guid-typescript';
 import { Repository } from 'typeorm';
 import CreateUserDto from '../dtos/createUser.dto';
-import User from '../entities/user.entity';
+import { User } from '../entities/user.entity';
  
 @Injectable()
 export class UsersService {
@@ -12,8 +12,8 @@ export class UsersService {
     private usersRepository: Repository<User>
   ) {}
 
-  async getById(id: string) {
-    const user = await this.usersRepository.findOne(id.toString());
+  async getById(id: number) {
+    const user = await this.usersRepository.findOne(id);
     if (user) {
       return user;
     }

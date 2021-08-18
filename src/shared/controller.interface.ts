@@ -1,7 +1,6 @@
 import { Guid } from "guid-typescript";
-import { BaseEntity } from "./base-entity";
 
-export interface IController<TEntity extends BaseEntity>{
+export interface IController<TEntity>{
     add(dto: any) : Promise<TEntity>
     findOne(id: Guid) : Promise<TEntity>
     findAll() : Promise<TEntity[]>

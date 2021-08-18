@@ -1,7 +1,7 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { Guid } from 'guid-typescript';
 import { IController } from 'src/shared/controller.interface';
-import User from '../entities/user.entity';
+import { User } from '../entities/user.entity';
 
 @Controller('users')
 export class UsersController implements IController<User>{

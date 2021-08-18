@@ -1,17 +1,18 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { BaseEntity } from '../../shared/base-entity';
- 
+import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+
 @Entity()
-class User extends BaseEntity {
-  
-  @Column({ unique: true })
-  public email: string;
- 
-  @Column({type: 'string',name: "USERNAME"})
-  public name: string;
- 
-  @Column({type: 'string',name: "PASSWORD"})
-  public password: string;
+export class User {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    email: string;
+
+    @Column()
+    password: string;
+
+    @Column()
+    age: number;
+
 }
- 
-export default User;
