@@ -1,7 +1,18 @@
-export class RegisterDto {
-  email: string;
-  name: string;
-  password: string;
-}
+import { IsEmail, IsNotEmpty, IsString, MinLength } from "class-validator"
 
-export default RegisterDto;
+export class RegisterDto {
+    @IsString()
+    @IsNotEmpty({ message: 'e-mail é obrigatório' })
+    @IsEmail()
+    email: string;
+
+    @IsString()
+    @IsNotEmpty({ message: 'nome é obrigatório' })
+    @MinLength(3)
+    name: string;
+
+    @IsString()
+    @IsNotEmpty({ message: 'password é obrigatório' })
+    @MinLength(8)
+    password: string;
+}
