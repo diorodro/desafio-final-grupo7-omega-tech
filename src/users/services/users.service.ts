@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Guid } from 'guid-typescript';
 import { RegisterDto } from 'src/authentication/dto/register.dto';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';

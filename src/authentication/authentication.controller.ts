@@ -12,14 +12,14 @@ export class AuthenticationController {
     private readonly authenticationService: AuthenticationService
   ) {}
 
-  @Post('register')
+  @Post('/register')
   async register(@Body() registrationData: RegisterDto) {
     return this.authenticationService.register(registrationData);
   }
 
   @HttpCode(200) //use  @HttpCode(200) because NestJS responds with 201 Created for POST requests by default
   @UseGuards(LocalAuthenticationGuard)
-  @Post('log-in')
+  @Post('/login')
   async logIn(@Req() request: RequestWithUser, @Res() response: Response) {
     const {user} = request;
     const cookie = this.authenticationService.getCookieWithJwtToken(+user.id);
@@ -29,7 +29,7 @@ export class AuthenticationController {
   }
 
   @UseGuards(JwtAuthenticationGuard)
-  @Post('log-out')
+  @Post('/logout')
   async logOut(@Res() response: Response) {
     response.setHeader('Set-Cookie', this.authenticationService.getCookieForLogOut());
     return response.sendStatus(200);
