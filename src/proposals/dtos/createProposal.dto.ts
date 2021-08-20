@@ -8,10 +8,8 @@ export class CreateProposalDto{
     @IsNotEmpty()
     public carga: Carga;
 
-    @IsNotEmpty()
-    public dataInicial: Date
+    public dataInicio: Date
 
-    @IsNotEmpty()
     public dataFinal: Date
 }
 

@@ -22,7 +22,7 @@ export class ProposalsService {
     }
 
     add(dtoProposal: CreateProposalDto): Promise<Proposal>{
-        const entity = new Proposal()
+        const entity = new Proposal(dtoProposal.dataInicio, dtoProposal.dataFinal)
         return this.repository.save(entity)
     }   
 
