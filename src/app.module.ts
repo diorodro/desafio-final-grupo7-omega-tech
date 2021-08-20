@@ -5,10 +5,12 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { UsersModule } from './users/user.module';
 import { ProposalsModule } from './proposals/proposal.module';
 import { DatabaseModule } from './database/database.module';
+import { CargaModule } from './carga/proposal.module';
 
 @Module({
   imports: [
     ProposalsModule,
+    CargaModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),

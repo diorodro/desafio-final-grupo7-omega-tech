@@ -9,11 +9,9 @@ export class CreateProposalDto{
     public carga: Carga;
 
     @IsNotEmpty()
-    @IsDate()
     public dataInicial: Date
 
     @IsNotEmpty()
-    @IsDate()
     public dataFinal: Date
 }
 

@@ -8,7 +8,9 @@ import { ProposalsService } from '../services/proposals.service';
 @Controller('proposta')
 export class ProposalsController{
     
-    constructor(private readonly service: ProposalsService) {}
+  constructor(
+      private readonly service: ProposalsService,
+      ) {}
 
   @Post()
   add(@Body() dto: CreateProposalDto): Promise<Proposal> {
