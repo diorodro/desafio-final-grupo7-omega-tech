@@ -1,32 +1,40 @@
+import { Guid } from 'guid-typescript';
+import { Carga } from 'src/carga/entities/carga.entity';
 import FonteEnergia from 'src/utils/fonte.enum';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Carga } from './carga.entity';
+import Submercado from 'src/utils/submercado.enum';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
  
 @Entity()
 export class Proposal{
 
-  @PrimaryGeneratedColumn()
-  public id!: number;
-  
-  @Column()
-  private dataInicio: Date
+  @PrimaryColumn({type: 'uuid', name: 'ID' })
+  public id: string
 
-  @Column()
-  private dataFinal: Date
+  @Column({type: 'date', name: 'DT_START'})
+  public dataInicio: Date
+
+  @Column({type: 'date', name: 'DT_FINAL'})
+  public dataFinal: Date
 
   @OneToMany(() => Carga, carga => carga.proposal)
-  carga: Carga[]
+  cargas: Carga[]
 
-  @Column()
-  private consumoTotal: number
+  @Column({type:'float', name: 'CSM_TOTAL'})
+  public consumoTotal: number
 
-  @Column()
-  private fonteEnergia: FonteEnergia
+  @Column({type:'text', name: 'ENERGY_SOURCE'})
+  public fonteEnergia: FonteEnergia
 
-  @Column()
-  private contratado: boolean
+  @Column({type:'boolean', name: 'CONTRACTED'})
+  public contratado: boolean
 
-  @Column()
-  private valorProposto: string
+  @Column({type:'float', name: 'VL_PROPOSED'})
+  public valorProposto: number
 
+  @Column({type:'float', name: 'SUB_MARKET'})
+  public submercado: Submercado
+
+  constructor() {
+    this.id = Guid.create().toString()
+  }
 }

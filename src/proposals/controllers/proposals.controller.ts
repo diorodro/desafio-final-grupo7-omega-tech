@@ -1,25 +1,18 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { Guid } from 'guid-typescript';
-import { IController } from 'src/shared/controller.interface';
 import { CreateProposalDto } from '../dtos/createProposal.dto';
 import { UpdateProposalDto } from '../dtos/updateProposal.dto';
 import { Proposal } from '../entities/proposal.entity';
 import { ProposalsService } from '../services/proposals.service';
 
 @Controller('proposta')
-export class ProposalsController implements IController<Proposal> {
+export class ProposalsController{
     
-    constructor(private service: ProposalsService) {}
-
+    constructor(private readonly service: ProposalsService) {}
 
   @Post()
   add(@Body() dto: CreateProposalDto): Promise<Proposal> {
     return this.service.add(dto)
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: Guid): Promise<Proposal> {
-    return this.service.findOne(id)
   }
 
   @Get()

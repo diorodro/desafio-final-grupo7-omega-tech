@@ -1,9 +1,8 @@
 enum Submercado {
-  CENTRO_OESTE = 1,
-  NORDESTE = 2,
-  NORTE = 3,
-  SUDESTE = 4,
-  SUL = 5
+  NORDESTE = 2.00,
+  NORTE = -1.00,
+  SUDESTE = 1.50,
+  SUL = 3.50
 }
 
 export default Submercado
