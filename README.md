@@ -17,8 +17,9 @@ Tabela de conteúdos
 ## Sobre
    Este projeto consiste na criação de um site que gera uma proposta de contrato de energia. Este repositório consiste no backend da aplicação. Todas as
 funcionalidades estão desenvolvidas em uma arquitetura de webservices com
-arquitetura REST.
+arquitetura REST e Documentação no Swagger.
 
+   O repositório com o Front End da aplicação você encontra aqui! https://github.com/ViniciusAzevedoM/desafio-final-grupo7-omega-tech-frontend
 ## Como usar
 
 ### Pré-requisitos
@@ -31,10 +32,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/tgmarinho/nlw1>
+$ git clone <https://github.com/diorodro/desafio-final-grupo7-omega-tech.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd nlw1
+$ cd pastaProjeto
 
 # Instale as dependências
 $ npm install
@@ -46,6 +47,9 @@ $ npm run start:dev
 ```
 
 Utilize softwares como o [Insomnia](https://insomnia.rest/download) para rodar os endpoints.
+
+
+*Para rodar o swagger bastar acessar o localhost:3000/api*
 
 ## Features
 
