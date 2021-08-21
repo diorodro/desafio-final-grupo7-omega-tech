@@ -11,28 +11,27 @@ import { Carga } from 'src/carga/entities/carga.entity';
 export class ProposalsService {
 
     constructor(
-        @InjectRepository(Proposal) private repositoryProposal: Repository<Proposal>,
-        @InjectRepository(Carga)  repositoryCarga: Repository<Carga>
+        @InjectRepository(Proposal) private repository: Repository<Proposal>,
     ){}
 
     private proposals: Proposal[] = []
 
     async remove(id: Guid) : Promise<any> {
         const cc = await this.findOne(id)
-        return this.repositoryProposal.delete(cc)
+        return this.repository.delete(cc)
     }
 
     add(dtoProposal: CreateProposalDto): Promise<Proposal>{
-        const entity = new Proposal()
-        return this.repositoryProposal.save(entity)
+        const entity = new Proposal(dtoProposal.dataInicio, dtoProposal.dataFinal)
+        return this.repository.save(entity)
     }   
 
     findAll() : Promise<Proposal[]>{
-        return this.repositoryProposal.find()
+        return this.repository.find()
     }
 
     findOne(id: Guid) : Promise<Proposal>{
-        return this.repositoryProposal.findOne(id.toString())
+        return this.repository.findOne(id.toString())
     }
 
     async update(id: Guid, dto: UpdateProposalDto): Promise<Proposal>{
@@ -41,6 +40,6 @@ export class ProposalsService {
         
         var cc = await this.findOne(id)
 
-        return this.repositoryProposal.save(cc)
+        return this.repository.save(cc)
     }
 }

@@ -7,13 +7,9 @@ export class UpdateProposalDto{
     @IsNotEmpty()
     public carga: Carga;
 
-    @IsNotEmpty()
-    @IsDate()
-    public dataInicial: Date
+    public dataInicio: string
 
-    @IsNotEmpty()
-    @IsDate()
-    public dataFinal: Date
+    public dataFinal: string
 
 }
 
