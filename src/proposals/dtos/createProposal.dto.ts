@@ -12,16 +12,6 @@ export class CreateProposalDto{
     public dataFinal: Date
 
     @IsNotEmpty()
-    public contratado: boolean
-
-    @IsNotEmpty()
-    public fonteEnergia: FonteEnergia
-
-    public valorProposto: number
-
-    public submercado: Submercado
-
-    @IsNotEmpty()
     public cargas: CreateCargaDto[];
 }
 

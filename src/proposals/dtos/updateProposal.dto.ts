@@ -14,18 +14,6 @@ export class UpdateProposalDto{
     public dataFinal: Date
     
     @IsNotEmpty()
-    public fonteEnergia: FonteEnergia
-
-    @IsNotEmpty()
-    public contratado: boolean
-
-    @IsNotEmpty()
-    public valorProposto: number
-
-    @IsNotEmpty()
-    public submercado: Submercado
-
-    @IsNotEmpty()
     public cargas: CreateCargaDto[];
 
 }
