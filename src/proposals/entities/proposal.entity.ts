@@ -19,8 +19,8 @@ export class Proposal{
   @OneToMany(() => Carga, carga => carga.proposal)
   public cargas: Carga[]
 
-  @Column()
-  public consumoTotal: number
+  // @Column()
+  // public consumoTotal: number
 
   @Column()
   public fonteEnergia: FonteEnergia
@@ -34,9 +34,11 @@ export class Proposal{
   @Column()
   public submercado: Submercado
 
-  constructor(dataInicio: Date, dataFinal: Date) {
+  constructor(dataInicio: Date, dataFinal: Date, contratado: boolean, fonteEnergia: FonteEnergia) {
     this.id = Guid.create().toString()
     this.dataInicio = dataInicio
     this.dataFinal = dataFinal
+    this.contratado = contratado
+    this.fonteEnergia = fonteEnergia
   }
 }

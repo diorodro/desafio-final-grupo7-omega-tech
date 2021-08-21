@@ -23,7 +23,13 @@ export class ProposalsService {
     }
 
     async add(dtoProposal: CreateProposalDto): Promise<Proposal>{
-        const entity = await new Proposal(dtoProposal.dataInicio, dtoProposal.dataFinal)
+        const entity = await new Proposal(
+                    dtoProposal.dataInicio,
+                    dtoProposal.dataFinal,
+                    dtoProposal.contratado,
+                    dtoProposal.fonteEnergia
+
+        )
 
         this.repository.save(entity)
 
@@ -32,7 +38,6 @@ export class ProposalsService {
           var newCarga = new Carga(carga.nomeEmpresa,carga.consumoKwh)
 
           newCarga.proposal = entity
-          entity.cargas.push(newCarga)
 
           this.repositoryCarga.save(newCarga)
         })
