@@ -13,6 +13,7 @@ Tabela de conteúdos
    * [Features](#Features)
    * [Tecnologias](#tecnologias)
    * [Colaboradores](#colaboradores)
+   * [Documentação](#Documentation)
 
 ## Sobre
    Este projeto consiste na criação de um site que gera uma proposta de contrato de energia. Este repositório consiste no backend da aplicação. Todas as
@@ -48,9 +49,6 @@ $ npm run start:dev
 
 Utilize softwares como o [Insomnia](https://insomnia.rest/download) para rodar os endpoints.
 
-
-*Para rodar o swagger bastar acessar o localhost:3000/api*
-
 ## Features
 
 - [x] Cadastro de usuário
@@ -79,8 +77,10 @@ https://github.com/ViniciusAzevedoM
 https://github.com/diorodro
 https://github.com/titular33
 https://github.com/RutielyMiranda
+
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Swagger - *Para rodar o swagger bastar acessar o localhost:3000/api*]
+
 
   
