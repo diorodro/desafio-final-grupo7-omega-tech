@@ -12,22 +12,36 @@ export class ProposalsService {
 
     constructor(
         @InjectRepository(Proposal) private repository: Repository<Proposal>,
+        @InjectRepository(Carga) private repositoryCarga: Repository<Carga>,
     ){}
 
     private proposals: Proposal[] = []
 
     async remove(id: Guid) : Promise<any> {
-        const cc = await this.findOne(id)
+        const cc = await this.repository.findOne(id.toString())
         return this.repository.delete(cc)
     }
 
-    add(dtoProposal: CreateProposalDto): Promise<Proposal>{
-        const entity = new Proposal(dtoProposal.dataInicio, dtoProposal.dataFinal)
-        return this.repository.save(entity)
+    async add(dtoProposal: CreateProposalDto): Promise<Proposal>{
+        const entity = await new Proposal(dtoProposal.dataInicio, dtoProposal.dataFinal)
+
+        this.repository.save(entity)
+
+        dtoProposal.cargas.forEach(carga =>{
+
+          var newCarga = new Carga(carga.nomeEmpresa,carga.consumoKwh)
+
+          newCarga.proposal = entity
+          entity.cargas.push(newCarga)
+
+          this.repositoryCarga.save(newCarga)
+        })
+
+        return entity
     }   
 
     findAll() : Promise<Proposal[]>{
-        return this.repository.find()
+        return this.repository.find({ relations: ['cargas'] });
     }
 
     findOne(id: Guid) : Promise<Proposal>{
@@ -36,7 +50,7 @@ export class ProposalsService {
 
     async update(id: Guid, dto: UpdateProposalDto): Promise<Proposal>{
         
-        if(dto.carga == null) throw new BadRequestException("Valor inválido")
+        if(dto.cargas == null) throw new BadRequestException("Valor inválido")
         
         var cc = await this.findOne(id)
 

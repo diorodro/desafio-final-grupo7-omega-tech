@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString } from "class-validator"
+import { CreateProposalDto } from "src/proposals/dtos/createProposal.dto"
 
 export class CreateCargaDto{
 
@@ -9,4 +10,7 @@ export class CreateCargaDto{
     @IsNotEmpty()
     @IsNumber()
     public consumoKwh: number
+
+    @IsNotEmpty()
+    public proposal: CreateProposalDto
 }
