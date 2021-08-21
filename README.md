@@ -21,6 +21,7 @@ funcionalidades estão desenvolvidas em uma arquitetura de webservices com
 arquitetura REST e Documentação no Swagger.
 
    O repositório com o Front End da aplicação você encontra aqui! https://github.com/ViniciusAzevedoM/desafio-final-grupo7-omega-tech-frontend
+
 ## Como usar
 
 ### Pré-requisitos
@@ -54,9 +55,9 @@ Utilize softwares como o [Insomnia](https://insomnia.rest/download) para rodar o
 - [x] Cadastro de usuário
 - [x] Login de usuário
 - [x] Logout de usuário
-- [ ] Criação de proposta
+- [x] Criação de proposta
 - [ ] Contratação de proposta
-- [ ] Listagem de propostas
+- [x] Listagem de propostas
 - [ ] Exclusão de proposta
 
 🚧  🚀 Em construção...  🚧
@@ -73,10 +74,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## Colaboradores
 
-https://github.com/ViniciusAzevedoM
-https://github.com/diorodro
-https://github.com/titular33
-https://github.com/RutielyMiranda
+Vinícius Menezes: https://github.com/ViniciusAzevedoM
+Rodrigo Dionísio: https://github.com/diorodro
+Pedro Amorim: https://github.com/titular33
+Rutiely Miranda: https://github.com/RutielyMiranda
 
 ## Documentation
 
