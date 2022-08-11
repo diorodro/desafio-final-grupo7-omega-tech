@@ -75,7 +75,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## Colaboradores
 
 Vinícius Menezes: https://github.com/ViniciusAzevedoM
-Rodrigo Dionísio: https://github.com/diorodro
+Rodrigo Dionizio: https://github.com/diorodro
 Pedro Amorim: https://github.com/titular33
 Rutiely Miranda: https://github.com/RutielyMiranda
 
